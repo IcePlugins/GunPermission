@@ -11,8 +11,8 @@ namespace GunPermission
         
         public void LoadDefaults()
         {
-            Permissions = new List<string>();
-            BlacklistedGunIds = new List<ushort>();
+            Permissions = new List<string>() { "gunpermission.gunsallowed" };
+            BlacklistedGunIds = new List<ushort>() { 297 };
         }
     }
 }
