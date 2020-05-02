@@ -12,6 +12,8 @@ namespace GunPermission
     {
 
         public static GunPermissionPlugin Instance;
+        
+        
 
         public override void LoadPlugin()
         {
@@ -56,13 +58,22 @@ namespace GunPermission
         public static bool CanEquip(UnturnedPlayer rPlayer)
         {
             bool isAllowed = false;
+
+            if (Instance.Configuration.Instance.IgnoreAdmin && rPlayer.IsAdmin)
+                return true;
                 
             foreach (var permission in Instance.Configuration.Instance.Permissions.Where(permission => rPlayer.HasPermission(permission)))
                 isAllowed = true;
 
+            //TODO: Add individual permissions for guns but will need to get UseableGun because apparently Nolson can't pass an id
+            
+            
+
             if (Instance.Configuration.Instance.BlacklistedGunIds.Contains(
                 ((ItemGunAsset) rPlayer.Player.equipment.asset).id))
                 isAllowed = false;
+            
+            
 
             return isAllowed;
         }
