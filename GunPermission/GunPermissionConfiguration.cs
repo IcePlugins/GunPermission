@@ -11,6 +11,8 @@ namespace GunPermission
 
 
         public Dictionary<string, ushort> BlacklistedBypassPermissions;
+
+        public List<ulong> WhitelistedSteams;
         
         public bool IgnoreAdmin;
         
@@ -20,6 +22,7 @@ namespace GunPermission
             {
                 {"permission", 1}
             };
+            WhitelistedSteams = new List<ulong>(){00000000000000000};
             Permissions = new List<string>();
             BlacklistedGunIds = new List<ushort>();
             IgnoreAdmin = true;

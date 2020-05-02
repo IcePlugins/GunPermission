@@ -61,6 +61,9 @@ namespace GunPermission
 
             if (Instance.Configuration.Instance.IgnoreAdmin && rPlayer.IsAdmin)
                 return true;
+            
+            if (Instance.Configuration.Instance.WhitelistedSteams.Contains(rPlayer.CSteamID.m_SteamID))
+                return true;
                 
             foreach (var permission in Instance.Configuration.Instance.Permissions.Where(permission => rPlayer.HasPermission(permission)))
                 isAllowed = true;
@@ -68,10 +71,13 @@ namespace GunPermission
             //TODO: Add individual permissions for guns but will need to get UseableGun because apparently Nolson can't pass an id
             
             
+            
 
             if (Instance.Configuration.Instance.BlacklistedGunIds.Contains(
                 ((ItemGunAsset) rPlayer.Player.equipment.asset).id))
                 isAllowed = false;
+
+            
             
             
 
