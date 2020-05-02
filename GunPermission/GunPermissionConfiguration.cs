@@ -22,6 +22,7 @@ namespace GunPermission
             {
                 {"permission", 1}
             };
+            //Lol
             WhitelistedSteams = new List<ulong>(){00000000000000000};
             IgnoreAdmin = true;
             Permissions = new List<string>() { "gunpermission.gunsallowed" };
