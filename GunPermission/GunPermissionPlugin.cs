@@ -12,19 +12,29 @@ namespace GunPermission
     {
 
         public static GunPermissionPlugin Instance;
+
+        private static bool _overrided;
         
         
 
         public override void LoadPlugin()
         {
             Instance = this;
+            if (_overrided)
+                return;
             MethodInfo originalMethod = typeof(PlayerEquipment).GetMethod("askEquip", BindingFlags.Instance | BindingFlags.Public);
             MethodInfo newMethod =
                 typeof(OverrideMethods).GetMethod("askEquip", BindingFlags.Static | BindingFlags.Public);
             RedirectionHelper.RedirectCalls(originalMethod, newMethod);
+            _overrided = true;
         }
 
-        
+        public override void UnloadPlugin(PluginState state = PluginState.Unloaded)
+        {
+            Instance = null;
+        }
+
+
         //Scrapped code
         /*
         public void FixedUpdate() => CheckEquips();
