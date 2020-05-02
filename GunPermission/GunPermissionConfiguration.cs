@@ -23,9 +23,9 @@ namespace GunPermission
                 {"permission", 1}
             };
             WhitelistedSteams = new List<ulong>(){00000000000000000};
-            Permissions = new List<string>();
-            BlacklistedGunIds = new List<ushort>();
             IgnoreAdmin = true;
+            Permissions = new List<string>() { "gunpermission.gunsallowed" };
+            BlacklistedGunIds = new List<ushort>() { 297 };
         }
     }
 }

@@ -1,0 +1,11 @@
+language: csharp
+solution: GunPermissionOpenSource.sln
+deploy:
+  edge: true
+  provider: releases
+  api_key:
+    secure: XImdL/sqp7UlSGC/7lAfB4GgMWb1ySqxsYp8Z/+K3i+Mzv4eD3fhhzmw39lNkLg/ktwn8IFYF+qB0EfzemnoxZcNvTcgwFHpe9kOkzjHfWc0rO94oVAp/zMsnka/BEEpsXgwT14/9yHcanj5Lypcg1gqJoNrczK4f1eM9zIDQqwgnaAP5U6cncB0yyxyQymSVCB5uJolnSCzCQKcwPEVW3dZkX49PiUdYXV+kcVzc3Wa6GZNibBcnAReurKzuwvMk7rFZvP7Z08WyvCLlMdaIXWPHf0HJ6pfTJqj1K5X2U4ntG0BJcMhCWqa0ebRpLyJFAIl3uP4U0fZ62UWfr/IgY0fjrXWIIgs4yzZsIgjUVJbCkP+aJ4ljHeJu3TtMSSliiSnG+EuQzQC0SdhM2Mfe3KgLzhIWfaO5FF+fQ7XLplUjueQRzeW+0cLBkbfFMHz4/IJwIn1GdT8Q62QwhZi9xBD5pshRSKW8RbNY2NZoGNju5ek9uKnI/iXGQONPtYSvQe4Vo3ZZhIm6Vc1ArbHK9QJxRk2zh3Jun0QeV/2Hxrp7TvhZ6Vt6nTWh72aamCj1B4a/MU3hsTd3vNJtP5oiSH61cPPZbmpYUJjJOZzcwYQ+jsxZSfnpW6wjB9JeUj7+ZyWhrB5SGhcoAVu2NLblUE9UURb3uMt8rjIXLhXdWo=
+  file: 'GunPermission/bin/Release/GunPermission.dll'
+  on:
+    tags: true
+  skip_cleanup: true
